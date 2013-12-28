@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+	<!-- Map menu dimensions -->
+    <dimen name="map_menu_icon_size">48dp</dimen>
+    <dimen name="map_menu_icon_margin">5dp</dimen>
+    
+    <!-- Map info bar dimensions -->
+    <dimen name="map_bar_margin">10dp</dimen>
+
+    <!-- Trap info dimensions -->
+    <dimen name="trap_info_view_margin">5dp</dimen>
+    
+    
+</resources>

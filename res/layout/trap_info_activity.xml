@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_background_color"
+    tools:context=".TrapInfoActivity" >
+
+    <TextView
+        android:layout_alignParentTop="true"
+        android:id="@+id/trap_info_name_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/trap_info_view_margin"
+        android:gravity="center"
+        android:textColor="@color/activity_text_color" 
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+
+
+    <ImageView
+        android:layout_below="@id/trap_info_name_text"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/trap_info_image"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_margin="@dimen/trap_info_view_margin" />
+
+        <TextView
+        android:layout_below="@id/trap_info_image"
+        android:id="@+id/trap_info_placed_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/trap_info_view_margin"
+        android:textColor="@color/activity_text_color" 
+        />
+    
+    
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/trap_info_view_margin"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/trap_info_set_trap_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textColor="@color/activity_text_color"
+            android:layout_weight="1"
+            />
+        <Button
+            android:id="@+id/trap_info_set_bait_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textColor="@color/activity_text_color"
+            android:layout_weight="1"
+            />
+        
+    </LinearLayout>
+
+</RelativeLayout>

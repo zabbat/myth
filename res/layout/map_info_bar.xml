@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#80808080"
+    >
+    
+<ImageView 
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+	android:id="@+id/map_info_bar_image"    
+    android:src="@drawable/tips_x"
+    android:layout_margin="5dp"
+    />    
+    
+<TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+	android:id="@+id/map_info_bar_text"
+    android:textColor="@android:color/white"
+    android:text="Long press to place trap"
+    android:textStyle="italic"
+    android:layout_margin="5dp"
+    />    
+    
+
+</LinearLayout>

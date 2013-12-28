@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:background="#80808080"
+    android:clickable="false"
+    
+    >
+    
+    <ImageView 
+    	android:layout_width="@dimen/map_menu_icon_size"
+    	android:layout_height="@dimen/map_menu_icon_size"
+        android:id="@+id/map_menu_trap"
+        android:src="@drawable/trap_menu_x"
+        android:contentDescription="Trap Menu"
+        android:clickable="true"
+        android:layout_margin="@dimen/map_menu_icon_margin"
+        android:layout_weight="1"
+        />
+    
+    <ImageView 
+    	android:layout_width="@dimen/map_menu_icon_size"
+    	android:layout_height="@dimen/map_menu_icon_size"
+        android:id="@+id/map_menu_home"
+        android:src="@drawable/home_x"
+        android:contentDescription="Home Menu"
+        android:clickable="true"
+        android:layout_margin="@dimen/map_menu_icon_margin"
+        android:layout_weight="1"
+        />
+    
+        <ImageView 
+    	android:layout_width="@dimen/map_menu_icon_size"
+    	android:layout_height="@dimen/map_menu_icon_size"
+        android:id="@+id/map_menu_library"
+        android:src="@drawable/library_x"
+        android:contentDescription="Library Menu"
+        android:clickable="true"
+        android:layout_margin="@dimen/map_menu_icon_margin"
+        android:layout_weight="1" 
+        />
+    
+</LinearLayout>

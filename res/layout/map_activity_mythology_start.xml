@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MythologyStartActivity" >
+
+    <fragment
+        android:id="@+id/myth_map_frag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.google.android.gms.maps.MapFragment" />
+    
+    <fragment 
+        android:id="@+id/map_menu_frag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        class="net.wandroid.mythology.map.MapMenuFragment"
+        android:layout_marginLeft="@dimen/map_bar_margin"
+        android:layout_marginRight="@dimen/map_bar_margin"
+        android:layout_marginTop="@dimen/map_bar_margin"
+        android:layout_alignParentTop="true"
+        />
+
+    <fragment 
+        android:id="@+id/map_info_bar_frag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        class="net.wandroid.mythology.map.MapInfobarFragment"
+        android:layout_marginLeft="@dimen/map_bar_margin"
+        android:layout_marginRight="@dimen/map_bar_margin"
+        android:layout_marginBottom="@dimen/map_bar_margin"
+        android:layout_alignParentBottom="true"
+        
+        />
+    
+</RelativeLayout>
