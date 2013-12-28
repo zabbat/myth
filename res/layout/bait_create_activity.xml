@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BaitCreateActivity" 
+    android:background="@color/activity_background_color"
+    android:orientation="vertical"
+    >
+
+<fragment 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	class="net.wandroid.mythology.bait.BaitCreateSelectIngredientFragment"
+	android:id="@+id/bait_create_ingredient_1_frag"
+	android:layout_margin="5dp"    
+    />
+
+<fragment 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	class="net.wandroid.mythology.bait.BaitCreateSelectIngredientFragment"
+	android:id="@+id/bait_create_ingredient_2_frag"
+	android:layout_margin="5dp"    
+    />
+
+<Button 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	android:id="@+id/bait_create_btn"    
+    android:text="Create Bait"
+    android:layout_margin="5dp"
+    android:textColor="@color/activity_text_color"
+    />
+
+<fragment class="net.wandroid.mythology.bait.BaitIngredientListFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bait_create_ingredient_list_frag"
+    />
+
+</LinearLayout>

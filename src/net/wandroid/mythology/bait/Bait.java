@@ -1,4 +1,4 @@
-package net.wandroid.mythology.trap;
+package net.wandroid.mythology.bait;
 
 import net.wandroid.mythology.R;
 

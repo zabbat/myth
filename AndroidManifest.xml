@@ -70,12 +70,20 @@
                 android:value="net.wandroid.mythology.trap.TrapActivity" />
         </activity>
         <activity
-            android:name="net.wandroid.mythology.trap.BaitActivity"
+            android:name="net.wandroid.mythology.bait.BaitActivity"
             android:label="@string/title_activity_bait"
             android:parentActivityName="net.wandroid.mythology.trap.TrapActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="net.wandroid.mythology.trap.TrapActivity" />
+        </activity>
+        <activity
+            android:name="net.wandroid.mythology.bait.BaitCreateActivity"
+            android:label="@string/title_activity_bait_create"
+            android:parentActivityName="net.wandroid.mythology.bait.BaitActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.wandroid.mythology.trap.BaitActivity" />
         </activity>
     </application>
 

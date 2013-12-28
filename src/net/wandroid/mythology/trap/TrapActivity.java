@@ -18,16 +18,6 @@ public class TrapActivity extends Activity{
 		setContentView(R.layout.trap_activity);
 		// Show the Up button in the action bar.
 		setupActionBar();
-		
-		View baitView =findViewById(R.id.trap_bait_layout);
-		baitView.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent=new Intent();
-				intent.setClass(TrapActivity.this, BaitActivity.class);
-				startActivity(intent);
-			}
-		});
 	}
 
 	/**

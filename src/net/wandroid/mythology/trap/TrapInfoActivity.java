@@ -1,7 +1,10 @@
 package net.wandroid.mythology.trap;
 
+import net.wandroid.mythology.PlayerBaitList;
 import net.wandroid.mythology.PlayerTrapList;
 import net.wandroid.mythology.R;
+import net.wandroid.mythology.bait.Bait;
+import net.wandroid.mythology.bait.BaitActivity;
 import net.wandroid.mythology.map.MythologyStartActivity;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -19,6 +22,9 @@ import android.widget.TextView;
 
 public class TrapInfoActivity extends Activity {
 
+	private Trap mTrap=Trap.NullTrap;
+	private int mTrapId;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,20 +35,21 @@ public class TrapInfoActivity extends Activity {
 		Intent intent=getIntent();
 		//get extras...
 		
-		int id=intent.getIntExtra(PlayerTrapList.TRAP_ID_KEY,-1);
-		init(id);
+		mTrapId=intent.getIntExtra(PlayerTrapList.TRAP_ID_KEY,-1);
+		mTrap=PlayerTrapList.getInstance().get(mTrapId);
+		init();
 	}
 
-	private void init(final int id){
-		final Trap trap=PlayerTrapList.getInstance().get(id);
+	private void init(){
 		
 		
-		((TextView) findViewById(R.id.trap_info_name_text)).setText(trap.getTitle());
-		((TextView) findViewById(R.id.trap_info_placed_text)).setText("Is placed:"+trap.isPlaced());
-		((ImageView) findViewById(R.id.trap_info_image)).setImageResource(trap.getImageResource());
+		
+		((TextView) findViewById(R.id.trap_info_name_text)).setText(mTrap.getTitle());
+		((TextView) findViewById(R.id.trap_info_placed_text)).setText("Is placed:"+mTrap.isPlaced());
+		((ImageView) findViewById(R.id.trap_info_image)).setImageResource(mTrap.getImageResource());
 		
 		Button handleBait=(Button) findViewById(R.id.trap_info_set_bait_btn);
-		if(trap.getBait()==Bait.NullBait){
+		if(mTrap.getBait()==Bait.NullBait){
 			handleBait.setText("Add Bait");
 			handleBait.setOnClickListener(new OnClickListener() {
 				
@@ -50,34 +57,43 @@ public class TrapInfoActivity extends Activity {
 				public void onClick(View v) {
 					Intent intent=new Intent();
 					intent.setClass(TrapInfoActivity.this, BaitActivity.class);
-					startActivity(intent);
+					intent.putExtra(BaitActivity.BAIT_ACTIVITY_START_AS_PICKER, true);
+					startActivityForResult(intent,0);
 				}
 			});
 		}else{
 			handleBait.setText("Remove Bait");
-			//add click listener to remove bait
+			handleBait.setOnClickListener(new OnClickListener() {				
+				@Override
+				public void onClick(View v) {
+					Bait b=mTrap.getBait();
+					mTrap.setBait(Bait.NullBait);
+					PlayerBaitList.getInstance().add(b);
+					init();
+				}
+			});
 		}
 		Button handleTrap=(Button) findViewById(R.id.trap_info_set_trap_btn);
-		if(trap.isPlaced()){
+		if(mTrap.isPlaced()){
 			handleTrap.setText("Recall Trap");
 
 			handleTrap.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					trap.remove();
-					trap.setIsPlaced(false);
+					mTrap.remove();
+					mTrap.setIsPlaced(false);
 					//reboot ui
-					init(id);
+					init();
 				}
 			});
 			
 		}else{
-			initPlaceTrap(handleTrap,id,trap);
+			initPlaceTrap(handleTrap,mTrap);
 			};
 			
 	}
 
-	private void initPlaceTrap(Button handleTrap,final int id,final Trap trap){
+	private void initPlaceTrap(Button handleTrap,final Trap trap){
 		handleTrap.setText("Place Trap");
 		handleTrap.setOnClickListener(new OnClickListener() {
 			@Override
@@ -93,7 +109,7 @@ public class TrapInfoActivity extends Activity {
 								intent.putExtra(
 										MythologyStartActivity.MAP_MODE.MAP_MODE_TYPE_KEY,
 										MythologyStartActivity.MAP_MODE.MAP_PLACE_TRAP);
-								intent.putExtra(PlayerTrapList.TRAP_ID_KEY, id);
+								intent.putExtra(PlayerTrapList.TRAP_ID_KEY, mTrapId);
 								intent.setClass(getApplicationContext(),
 										MythologyStartActivity.class);
 								startActivity(intent);
@@ -110,8 +126,9 @@ public class TrapInfoActivity extends Activity {
 					AlertDialog.Builder builder = new AlertDialog.Builder(
 							TrapInfoActivity.this);
 					builder.setMessage("There is no Bait in Trap. Continue?")
+							.setNegativeButton("No", yesnoListener)
 							.setPositiveButton("Yes", yesnoListener)
-							.setNegativeButton("No", yesnoListener).create().show();
+							.create().show();
 				}
 				
 			}
@@ -151,6 +168,20 @@ public class TrapInfoActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(resultCode!=Activity.RESULT_OK){
+			// error
+			return;
+		}
+		if(data.hasExtra(PlayerBaitList.PLAYER_BAIT_ID_KEY)){
+			int id=data.getIntExtra(PlayerBaitList.PLAYER_BAIT_ID_KEY, -1);
+			mTrap.setBait(PlayerBaitList.getInstance().remove(id));
+			init();
+		}
 	}
 
 }

@@ -1,6 +1,7 @@
 package net.wandroid.mythology.trap;
 
 import net.wandroid.mythology.R;
+import net.wandroid.mythology.bait.Bait;
 
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -91,6 +92,10 @@ public class Trap {
 		return mBait;
 	}
 	
+	public void setBait(Bait bait) {
+		mBait = bait;
+	}
+
 	public boolean hasBait(){
 		return mBait!=null && mBait!=Bait.NullBait;
 	}

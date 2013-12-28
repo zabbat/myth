@@ -1,22 +1,40 @@
-package net.wandroid.mythology.trap;
+package net.wandroid.mythology.bait;
 
+import net.wandroid.mythology.PlayerBaitList;
 import net.wandroid.mythology.R;
-import net.wandroid.mythology.R.layout;
-import net.wandroid.mythology.R.menu;
-import android.os.Bundle;
+import net.wandroid.mythology.bait.BaitListFragment.BaitListListener;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
 
-public class BaitActivity extends Activity {
+public class BaitActivity extends Activity implements BaitListListener{
 
+	public static final String BAIT_ACTIVITY_START_AS_PICKER = "BaitActivity_start_as_picker";	
+
+	private boolean mIsPicker;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bait_activity);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		Intent intent=getIntent();
+		mIsPicker=intent.hasExtra(BAIT_ACTIVITY_START_AS_PICKER);
+		View createBaitView=findViewById(R.id.bait_list_create_btn);
+		createBaitView.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent=new Intent();
+				intent.setClass(BaitActivity.this, BaitCreateActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	/**
@@ -50,6 +68,16 @@ public class BaitActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onListItemClicked(int id) {
+		if(mIsPicker){
+			Intent intent=new Intent();
+			intent.putExtra(PlayerBaitList.PLAYER_BAIT_ID_KEY, id);
+			setResult(Activity.RESULT_OK, intent);
+			finish();
+		}
 	}
 
 }

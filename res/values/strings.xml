@@ -13,5 +13,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_trap_info">TrapInfoActivity</string>
     <string name="title_activity_bait">BaitActivity</string>
+    <string name="title_activity_bait_create">BaitCreateActivity</string>
 
 </resources>

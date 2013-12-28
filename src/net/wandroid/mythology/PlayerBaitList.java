@@ -5,12 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.wandroid.mythology.bait.Bait;
 import net.wandroid.mythology.myth.Myth;
-import net.wandroid.mythology.trap.Bait;
 
 public class PlayerBaitList extends ArrayList<Bait>{
 
 	private static final long serialVersionUID = 8615706992859422082L;
+	
+	public static final String PLAYER_BAIT_ID_KEY="PlayerBaitList_bait_id_key";
+	
 	private static PlayerBaitList sBaitList; 
 	private Map<String, Integer> mPlayerBaitStash=new HashMap<String, Integer>();
 	
@@ -35,7 +38,7 @@ public class PlayerBaitList extends ArrayList<Bait>{
 	}
 	
 
-	public void delete(Bait object) {
+	public void decrease(Bait object) {
 		Integer nr=mPlayerBaitStash.get(object.getName());
 		if(nr!=null){
 			if(nr==1){
@@ -44,6 +47,13 @@ public class PlayerBaitList extends ArrayList<Bait>{
 				mPlayerBaitStash.put(object.getName(), nr-1);
 			}
 		}
+	}
+	
+	@Override
+	public Bait remove(int index) {
+		Bait b=get(index);
+		decrease(b);
+		return b;
 	}
 	
 	public int getNr(int id){
