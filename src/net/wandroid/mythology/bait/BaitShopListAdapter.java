@@ -12,11 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class BaitListAdapter extends ArrayAdapter<Bait>{
+public class BaitShopListAdapter extends ArrayAdapter<Bait>{
 
 	private Context mContext;
 	
-	public BaitListAdapter(Context context, int resource,List<Bait> objects) {
+	public BaitShopListAdapter(Context context, int resource,List<Bait> objects) {
 		super(context, resource, objects);
 		mContext=context;
 	}
@@ -37,12 +37,14 @@ public class BaitListAdapter extends ArrayAdapter<Bait>{
 		mainText.setText(bait.getName());
 		
 		TextView nrText=(TextView) baitView.findViewById(R.id.bait_item_nr_text);
-		//"None" doesn't have quantity
-		if(bait==Bait.NullBait){
-			nrText.setText("");			
-		}else{
-			nrText.setText("Nr:"+PlayerBaitMap.getInstance().getNr(bait));
-		}
+		String nrString=mContext.getResources().getString(R.string.bait_item_view_nr_str);
+		nrText.setText(nrString+PlayerBaitMap.getInstance().getNr(bait));
+
+		TextView costText=(TextView) baitView.findViewById(R.id.bait_item_cost_text);
+		costText.setVisibility(View.VISIBLE);
+		String costString=mContext.getResources().getString(R.string.bait_item_view_cost_str);
+		costText.setText(costString+bait.getCost() + " Gold");
+
 		
 		ImageView image=(ImageView) baitView.findViewById(R.id.bait_item_image);
 		image.setImageResource(bait.getImageResource());

@@ -2,7 +2,7 @@ package net.wandroid.mythology.bait;
 
 import net.wandroid.mythology.PlayerBaitMap;
 import net.wandroid.mythology.R;
-import net.wandroid.mythology.bait.BaitListFragment.BaitListListener;
+import net.wandroid.mythology.bait.BaitPlayerListFragment.BaitListListener;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

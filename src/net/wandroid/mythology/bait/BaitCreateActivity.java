@@ -12,7 +12,7 @@ public class BaitCreateActivity extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.bait_create_activity);
+		setContentView(R.layout.bait_shop_activity);
 		// Show the Up button in the action bar.
 		setupActionBar();
 	}

@@ -23,7 +23,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 	android:id="@+id/bait_list_frag"    
-    class="net.wandroid.mythology.bait.BaitListFragment"
+    class="net.wandroid.mythology.bait.BaitPlayerListFragment"
     />
 
 </LinearLayout>

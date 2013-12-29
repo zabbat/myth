@@ -13,6 +13,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_trap_info">TrapInfoActivity</string>
     <string name="title_activity_bait">BaitActivity</string>
-    <string name="title_activity_bait_create">BaitCreateActivity</string>
+    <string name="title_activity_bait_create">BaitShopActivity</string>
 
+    <!-- bait strings -->
+    <string name="bait_item_view_nr_str">Owned: </string>
+    <string name="bait_item_view_cost_str">Cost: </string>
 </resources>
