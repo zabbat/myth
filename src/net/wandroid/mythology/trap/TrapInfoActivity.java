@@ -26,7 +26,7 @@ public class TrapInfoActivity extends Activity implements BaitSelectedListener{
 
 	private Trap mTrap = Trap.NullTrap;
 	private int mTrapId;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -69,10 +69,13 @@ public class TrapInfoActivity extends Activity implements BaitSelectedListener{
 			initPlaceTrap(handleTrap, mTrap);
 		}
 		
-		((BaitSelectFragment) getFragmentManager().findFragmentById(R.id.trap_info_bait_add_1_frag)).setBait(mTrap.getBait(0));
-		((BaitSelectFragment) getFragmentManager().findFragmentById(R.id.trap_info_bait_add_2_frag)).setBait(mTrap.getBait(1));
+		BaitSelectFragment baitSelectFrag1=(BaitSelectFragment) getFragmentManager().findFragmentById(R.id.trap_info_bait_add_1_frag);
+		baitSelectFrag1.setBait(mTrap.getBait(0));
+		baitSelectFrag1.setIsTrapPlaced(mTrap.isPlaced());
 		
-
+		BaitSelectFragment baitSelectFrag2=(BaitSelectFragment) getFragmentManager().findFragmentById(R.id.trap_info_bait_add_2_frag);
+		baitSelectFrag2.setBait(mTrap.getBait(1));
+		baitSelectFrag2.setIsTrapPlaced(mTrap.isPlaced());
 	}
 
 	private void initPlaceTrap(Button handleTrap, final Trap trap) {
