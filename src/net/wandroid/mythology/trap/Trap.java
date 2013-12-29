@@ -35,8 +35,9 @@ public class Trap {
 	private Marker mMarker=null;
 	private MarkerOptions mMarkerOptions=new MarkerOptions();
 	private boolean mIsPlaced;
-	private Bait mBait=Bait.NullBait;
-
+	private Bait mBait0=Bait.NullBait;
+	private Bait mBait1=Bait.NullBait;
+	
 	public String getTitle() {
 		return (getSizeString()+" "+mType.getTypeString()+" "+mName).trim();
 	}
@@ -88,16 +89,36 @@ public class Trap {
 		mIsPlaced = isPlaced;
 	}
 
-	public Bait getBait(){
-		return mBait;
+	public Bait getBait(int index){
+		if(index>1){
+			//error
+			return Bait.NullBait;
+		}
+		
+		if(index==0){
+			return mBait0;
+		}else{
+			return mBait1;
+		}
 	}
 	
-	public void setBait(Bait bait) {
-		mBait = bait;
+	public void setBait(Bait bait,int index) {
+		if(index>1){
+			//error
+			return;
+		}
+		if(index==0){
+			mBait0 = bait;
+		}else{
+			mBait1=bait;
+		}
 	}
 
+	private boolean hasBait(Bait bait){
+		return bait!=null && bait!=Bait.NullBait;
+	}
 	public boolean hasBait(){
-		return mBait!=null && mBait!=Bait.NullBait;
+		return hasBait(mBait0)||hasBait(mBait1);
 	}
 
 
@@ -117,7 +138,7 @@ public class Trap {
 		//t.mMarkerImageResource=R.drawable.red_flag_pin_x;
 		t.mMarkerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.red_flag_pin_x));
 		t.mIsPlaced=false;
-		t.mBait=Bait.NullBait;
+		t.mBait0=Bait.NullBait;
 		return t;
 	}
 	

@@ -6,40 +6,37 @@
     tools:context=".TrapInfoActivity" >
 
     <TextView
-        android:layout_alignParentTop="true"
         android:id="@+id/trap_info_name_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_margin="@dimen/trap_info_view_margin"
         android:gravity="center"
-        android:textColor="@color/activity_text_color" 
+        android:textColor="@color/activity_text_color"
         android:textSize="16sp"
-        android:textStyle="bold"
-        />
-
+        android:textStyle="bold" />
 
     <ImageView
-        android:layout_below="@id/trap_info_name_text"
-        android:layout_centerHorizontal="true"
         android:id="@+id/trap_info_image"
         android:layout_width="128dp"
         android:layout_height="128dp"
+        android:layout_below="@id/trap_info_name_text"
+        android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/trap_info_view_margin" />
 
-        <TextView
-        android:layout_below="@id/trap_info_image"
+    <TextView
         android:id="@+id/trap_info_placed_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/trap_info_image"
         android:layout_margin="@dimen/trap_info_view_margin"
-        android:textColor="@color/activity_text_color" 
-        />
-    
-    
+        android:textColor="@color/activity_text_color" />
+
     <LinearLayout
-        android:layout_alignParentBottom="true"
+        android:id="@+id/trap_info_button_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/trap_info_view_margin"
         android:orientation="horizontal" >
 
@@ -47,17 +44,29 @@
             android:id="@+id/trap_info_set_trap_btn"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:textColor="@color/activity_text_color"
             android:layout_weight="1"
-            />
-        <Button
-            android:id="@+id/trap_info_set_bait_btn"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:textColor="@color/activity_text_color"
-            android:layout_weight="1"
-            />
-        
+            android:textColor="@color/activity_text_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/trap_info_button_layout"
+        android:orientation="vertical" >
+
+        <fragment
+            android:id="@+id/trap_info_bait_add_1_frag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/trap_info_view_margin"
+            class="net.wandroid.mythology.bait.BaitSelectFragment" />
+
+        <fragment
+            android:id="@+id/trap_info_bait_add_2_frag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/trap_info_view_margin"
+            class="net.wandroid.mythology.bait.BaitSelectFragment" />
     </LinearLayout>
 
 </RelativeLayout>

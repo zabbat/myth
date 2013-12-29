@@ -1,6 +1,6 @@
 package net.wandroid.mythology.bait;
 
-import net.wandroid.mythology.PlayerBaitList;
+import net.wandroid.mythology.PlayerBaitMap;
 import net.wandroid.mythology.R;
 import net.wandroid.mythology.bait.BaitListFragment.BaitListListener;
 import android.app.Activity;
@@ -71,10 +71,11 @@ public class BaitActivity extends Activity implements BaitListListener{
 	}
 
 	@Override
-	public void onListItemClicked(int id) {
+	public void onListItemClicked(Bait bait) {
 		if(mIsPicker){
 			Intent intent=new Intent();
-			intent.putExtra(PlayerBaitList.PLAYER_BAIT_ID_KEY, id);
+			//intent.putExtra(Bait.BAIT_NAME_KEY, id);
+			intent.putExtra(Bait.BAIT_NAME_KEY, bait.getName());
 			setResult(Activity.RESULT_OK, intent);
 			finish();
 		}

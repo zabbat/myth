@@ -2,7 +2,7 @@ package net.wandroid.mythology.bait;
 
 import java.util.List;
 
-import net.wandroid.mythology.PlayerBaitList;
+import net.wandroid.mythology.PlayerBaitMap;
 import net.wandroid.mythology.R;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -37,7 +37,12 @@ public class BaitListAdapter extends ArrayAdapter<Bait>{
 		mainText.setText(bait.getName());
 		
 		TextView nrText=(TextView) baitView.findViewById(R.id.bait_item_nr_text);
-		nrText.setText("Nr:"+PlayerBaitList.getInstance().getNr(position));
+		//"None" doesn't have quantity
+		if(bait==Bait.NullBait){
+			nrText.setText("");			
+		}else{
+			nrText.setText("Nr:"+PlayerBaitMap.getInstance().getNr(bait));
+		}
 		
 		ImageView image=(ImageView) baitView.findViewById(R.id.bait_item_image);
 		image.setImageResource(bait.getImageResource());
