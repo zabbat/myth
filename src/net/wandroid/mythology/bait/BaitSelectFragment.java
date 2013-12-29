@@ -73,6 +73,7 @@ public class BaitSelectFragment extends Fragment {
 	
 	public void setBait(Bait bait){
 		mBait=bait;
+		init(getView());
 	}
 	
 	public interface BaitSelectedListener{

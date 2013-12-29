@@ -1,5 +1,6 @@
 package net.wandroid.mythology.trap;
 
+import net.wandroid.mythology.PlayerBaitMap;
 import net.wandroid.mythology.PlayerTrapList;
 import net.wandroid.mythology.R;
 import net.wandroid.mythology.bait.Bait;
@@ -163,12 +164,21 @@ public class TrapInfoActivity extends Activity implements BaitSelectedListener{
 
 	@Override
 	public void onBaitSelected(Bait bait, Fragment sender) {
+		
+		int baitIndex=-1;
+		
 		if(sender==getFragmentManager().findFragmentById(R.id.trap_info_bait_add_1_frag)){
-			mTrap.setBait(bait, 0);
+			baitIndex=0;
 		}
 		if(sender==getFragmentManager().findFragmentById(R.id.trap_info_bait_add_2_frag)){
-			mTrap.setBait(bait, 1);
+			baitIndex=1;
 		}
+
+		//if removing bait, it should go back to players stash
+		if(mTrap.getBait(baitIndex)!=Bait.NullBait && bait==Bait.NullBait){
+			PlayerBaitMap.getInstance().add(mTrap.getBait(baitIndex));
+		}
+		mTrap.setBait(bait, baitIndex);
 	}
 
 
