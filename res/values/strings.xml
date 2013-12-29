@@ -15,7 +15,13 @@
     <string name="title_activity_bait">BaitActivity</string>
     <string name="title_activity_bait_create">BaitShopActivity</string>
 
+	<!--     player strings -->
+    <string name="gold_str">Gold</string>
+    <string name="exp_str">Exp</string>
+    
     <!-- bait strings -->
     <string name="bait_item_view_nr_str">Owned: </string>
     <string name="bait_item_view_cost_str">Cost: </string>
+    
+    
 </resources>

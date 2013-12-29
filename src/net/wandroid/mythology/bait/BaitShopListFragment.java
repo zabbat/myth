@@ -14,7 +14,7 @@ import android.widget.ListView;
 
 public class BaitShopListFragment extends ListFragment{
 
-	private BaitListListener mBaitListListener=BaitListListener.NullBaitListListener;
+	private BaitShopListListener mBaitShopListListener=BaitShopListListener.NullBaitShopListListener;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -27,27 +27,27 @@ public class BaitShopListFragment extends ListFragment{
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		if(activity instanceof BaitListListener){
-			mBaitListListener=(BaitListListener) activity;
+		if(activity instanceof BaitShopListListener){
+			mBaitShopListListener=(BaitShopListListener) activity;
 		}
 	}
 	
 	@Override
 	public void onDetach() {
 		super.onDetach();
-		mBaitListListener=BaitListListener.NullBaitListListener;
+		mBaitShopListListener=BaitShopListListener.NullBaitShopListListener;
 	}
 	
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		mBaitListListener.onListItemClicked((Bait) getListAdapter().getItem((int) id));
+		mBaitShopListListener.onListItemClicked((Bait) getListAdapter().getItem((int) id));
 	}
 	
-	public interface BaitListListener{
+	public interface BaitShopListListener{
 		void onListItemClicked(Bait bait);
 		//Null object pattern
-		public static final BaitListListener NullBaitListListener=new BaitListListener() {
+		public static final BaitShopListListener NullBaitShopListListener=new BaitShopListListener() {
 			@Override
 			public void onListItemClicked(Bait bait) {
 			}

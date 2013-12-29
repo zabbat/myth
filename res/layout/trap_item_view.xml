@@ -12,6 +12,7 @@
     android:textColor="@color/activity_text_color"
     android:gravity="center_vertical"
 	android:id="@+id/trap_item_main_text"    
+    android:layout_margin="@dimen/default_text_view_margin"
     />
 
 <ImageView 

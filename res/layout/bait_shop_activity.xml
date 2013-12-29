@@ -6,12 +6,20 @@
     android:background="@color/activity_background_color"
     android:orientation="vertical"
     >
+<fragment 
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/player_info_bar_size"
+	class="net.wandroid.mythology.PlayerInfoBarFragment"
+	android:id="@+id/bait_shop_player_info_bar_frag"
+	android:layout_margin="@dimen/default_view_margin"
+    />
 
 <fragment 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 	class="net.wandroid.mythology.bait.BaitShopListFragment"
-	android:id="@+id/bait_shop_list_frag"    
+	android:id="@+id/bait_shop_list_frag"
+	android:layout_margin="@dimen/default_view_margin"    
     />
 
 </LinearLayout>

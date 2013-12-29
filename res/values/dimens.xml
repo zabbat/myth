@@ -4,6 +4,11 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+     <!-- Default view dimensions -->
+    <dimen name="default_view_margin">5dp</dimen>
+    <dimen name="default_text_view_margin">5dp</dimen>
+    
+    
 	<!-- Map menu dimensions -->
     <dimen name="map_menu_icon_size">48dp</dimen>
     <dimen name="map_menu_icon_margin">5dp</dimen>
@@ -11,6 +16,9 @@
     <!-- Map info bar dimensions -->
     <dimen name="map_bar_margin">10dp</dimen>
 
+    <dimen name="player_info_bar_size">48dp</dimen>
+    
+    
     <!-- Trap info dimensions -->
     <dimen name="trap_info_view_margin">5dp</dimen>
     

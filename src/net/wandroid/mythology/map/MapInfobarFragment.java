@@ -12,7 +12,7 @@ public class MapInfobarFragment extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View infoBar=inflater.inflate(R.layout.map_info_bar, container);
+		View infoBar=inflater.inflate(R.layout.map_info_bar_view, container);
 		return infoBar;
 	}
 	

@@ -1,19 +1,25 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/activity_background_color"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".TrapActivity" >
-       
+    tools:context=".TrapActivity"
+    android:orientation="vertical"
+     >
+
+    <fragment
+        android:id="@+id/trap_player_info_bar_frag"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/player_info_bar_size"
+        android:layout_margin="@dimen/default_view_margin"
+        class="net.wandroid.mythology.PlayerInfoBarFragment" />
 
     <fragment
         android:id="@+id/trap_list_frag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="net.wandroid.mythology.trap.TrapListFragment" />
+        class="net.wandroid.mythology.trap.TrapListFragment" 
+        android:layout_margin="@dimen/default_view_margin"
+        />
 
-</RelativeLayout>
+</LinearLayout>

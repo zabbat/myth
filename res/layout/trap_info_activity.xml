@@ -5,11 +5,19 @@
     android:background="@color/activity_background_color"
     tools:context=".TrapInfoActivity" >
 
+    <fragment
+        android:id="@+id/trap_info_player_info_bar_frag"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/player_info_bar_size"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/default_view_margin"
+        class="net.wandroid.mythology.PlayerInfoBarFragment" />
+
     <TextView
         android:id="@+id/trap_info_name_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/trap_info_player_info_bar_frag"
         android:layout_margin="@dimen/trap_info_view_margin"
         android:gravity="center"
         android:textColor="@color/activity_text_color"
@@ -37,7 +45,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/trap_info_view_margin"
         android:orientation="horizontal" >
 
         <Button

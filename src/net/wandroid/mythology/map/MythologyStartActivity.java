@@ -59,7 +59,7 @@ public class MythologyStartActivity extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.map_activity_mythology_start);
+		setContentView(R.layout.map_activity);
 		mMap = ((MapFragment) getFragmentManager().findFragmentById(
 				R.id.myth_map_frag)).getMap();
 		mHomeCloseupIcon = BitmapDescriptorFactory

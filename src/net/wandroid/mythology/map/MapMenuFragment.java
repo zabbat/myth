@@ -14,7 +14,7 @@ public class MapMenuFragment extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view=inflater.inflate(R.layout.map_menu, container);
+		View view=inflater.inflate(R.layout.map_menu_view, container);
 		view.findViewById(R.id.map_menu_trap).setOnClickListener(new MapIconMenuListener(MapMenuItem.TRAP_ITEM));
 		view.findViewById(R.id.map_menu_home).setOnClickListener(new MapIconMenuListener(MapMenuItem.HOME_ITEM));
 		view.findViewById(R.id.map_menu_bait).setOnClickListener(new MapIconMenuListener(MapMenuItem.BAIT_ITEM));
