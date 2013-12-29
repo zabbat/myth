@@ -16,7 +16,7 @@
     android:layout_height="wrap_content"
 	android:id="@+id/bait_list_create_btn"    
     android:textColor="@color/activity_text_color"
-    android:text="Create Bait"
+    android:text="Buy New Bait"
     />    
     
 <fragment 
