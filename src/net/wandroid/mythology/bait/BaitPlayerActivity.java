@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -76,7 +77,6 @@ public class BaitPlayerActivity extends Activity implements BaitListListener{
 	public void onListItemClicked(Bait bait) {
 		if(mIsPicker){
 			Intent intent=new Intent();
-			//intent.putExtra(Bait.BAIT_NAME_KEY, id);
 			intent.putExtra(Bait.BAIT_NAME_KEY, bait.getName());
 			setResult(Activity.RESULT_OK, intent);
 			finish();

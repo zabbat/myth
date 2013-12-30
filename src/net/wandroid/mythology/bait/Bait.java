@@ -74,6 +74,12 @@ public class Bait {
 		if(name.equals(BAIT_HUMAN_FLESH)){
 			return generateHumanFlesh();
 		}
+		if(name.equals(BAIT_GARLIC)){
+			return generateGarlic();
+		}
+		if(name.equals(BAIT_BOTTLE_OF_WATER)){
+			return generateBottleOfWater();
+		}
 		
 		//error, no match
 		return NullBait;
