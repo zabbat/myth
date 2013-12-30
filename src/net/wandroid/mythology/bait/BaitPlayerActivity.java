@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-public class BaitActivity extends Activity implements BaitListListener{
+public class BaitPlayerActivity extends Activity implements BaitListListener{
 
 	public static final String BAIT_ACTIVITY_START_AS_PICKER = "BaitActivity_start_as_picker";	
 
@@ -26,12 +26,14 @@ public class BaitActivity extends Activity implements BaitListListener{
 		setupActionBar();
 		Intent intent=getIntent();
 		mIsPicker=intent.hasExtra(BAIT_ACTIVITY_START_AS_PICKER);
+		((BaitPlayerListFragment)getFragmentManager().findFragmentById(R.id.bait_list_frag)).setIsPickerList(mIsPicker);
+		
 		View createBaitView=findViewById(R.id.bait_list_create_btn);
 		createBaitView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent intent=new Intent();
-				intent.setClass(BaitActivity.this, BaitCreateActivity.class);
+				intent.setClass(BaitPlayerActivity.this, BaitShopActivity.class);
 				startActivity(intent);
 			}
 		});

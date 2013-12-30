@@ -5,7 +5,7 @@ import java.nio.channels.FileChannel.MapMode;
 import net.wandroid.mythology.DeveloperActivity;
 import net.wandroid.mythology.PlayerTrapList;
 import net.wandroid.mythology.R;
-import net.wandroid.mythology.bait.BaitActivity;
+import net.wandroid.mythology.bait.BaitPlayerActivity;
 import net.wandroid.mythology.map.MapMenuFragment.MapMenuItem;
 import net.wandroid.mythology.myth.HomeActivity;
 import net.wandroid.mythology.trap.Trap;
@@ -139,7 +139,7 @@ public class MythologyStartActivity extends Activity implements
 			startActivityForResult(intent, 0);
 			break;
 		case BAIT_ITEM:
-			intent.setClass(this, BaitActivity.class);
+			intent.setClass(this, BaitPlayerActivity.class);
 			startActivity(intent);
 			break;
 		default:

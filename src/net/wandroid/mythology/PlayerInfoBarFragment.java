@@ -2,6 +2,7 @@ package net.wandroid.mythology;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,8 @@ public class PlayerInfoBarFragment extends Fragment{
 	}
 	
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
+	public void onResume() {
+		super.onResume();
 		setPlayerGoldText(Player.getInstance().getGold());
 		setPlayerExpText(0);
 	}

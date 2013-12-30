@@ -51,9 +51,9 @@ public class BaitSelectFragment extends Fragment {
 							}).show();
 						} else {
 							Intent intent = new Intent();
-							intent.setClass(getActivity(), BaitActivity.class);
+							intent.setClass(getActivity(), BaitPlayerActivity.class);
 							intent.putExtra(
-									BaitActivity.BAIT_ACTIVITY_START_AS_PICKER,
+									BaitPlayerActivity.BAIT_ACTIVITY_START_AS_PICKER,
 									true);
 							startActivityForResult(intent, 0);
 						}

@@ -1,6 +1,7 @@
 package net.wandroid.mythology.bait;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import net.wandroid.mythology.PlayerBaitMap;
 import net.wandroid.mythology.R;
@@ -15,15 +16,34 @@ public class BaitPlayerListFragment extends ListFragment{
 
 	private BaitListListener mBaitListListener=BaitListListener.NullBaitListListener;
 	
+	//in case the list is used for picking, None , should also be added to the list
+	private boolean mIsPicker;
+	
+	private ArrayAdapter<Bait> mAdapter;
+	private List<Bait> mBaitList=new ArrayList<Bait>();
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		ArrayList<Bait> list=new ArrayList<Bait>(new ArrayList<Bait>(PlayerBaitMap.getInstance().getBaits()));
-		list.add(0, Bait.NullBait);
-		ArrayAdapter<Bait> adapter=new BaitPlayerListAdapter(getActivity(), R.id.bait_item_image, list);
-		setListAdapter(adapter);
+	}
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		
+		loadBaitList();
+		mAdapter=new BaitPlayerListAdapter(getActivity(), R.id.bait_item_image, mBaitList);
+		setListAdapter(mAdapter);
 	}
 
+	private void loadBaitList(){
+		mBaitList.clear();
+		mBaitList.addAll(new ArrayList<Bait>(PlayerBaitMap.getInstance().getBaits()));
+		if(mIsPicker){
+			mBaitList.add(0, Bait.NullBait);
+		}
+	}
+	
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
@@ -35,7 +55,21 @@ public class BaitPlayerListFragment extends ListFragment{
 	@Override
 	public void onDetach() {
 		super.onDetach();
+		
 		mBaitListListener=BaitListListener.NullBaitListListener;
+	}
+	
+	
+	
+	public void setIsPickerList(boolean b) {
+		this.mIsPicker = b;
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		loadBaitList();
+		mAdapter.notifyDataSetChanged();
 	}
 	
 	@Override
