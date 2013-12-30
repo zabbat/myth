@@ -48,8 +48,8 @@ public class TrapInfoActivity extends Activity implements BaitSelectedListener{
 				.getTitle());
 		((TextView) findViewById(R.id.trap_info_placed_text))
 				.setText("Is placed:" + mTrap.isPlaced());
-		((ImageView) findViewById(R.id.trap_info_image)).setImageResource(mTrap
-				.getImageResource());
+//		((ImageView) findViewById(R.id.trap_info_image)).setImageResource(mTrap
+//				.getImageResource());
 
 		Button handleTrap = (Button) findViewById(R.id.trap_info_set_trap_btn);
 		if (mTrap.isPlaced()) {

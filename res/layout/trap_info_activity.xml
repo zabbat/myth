@@ -32,14 +32,6 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/trap_info_view_margin" />
 
-    <TextView
-        android:id="@+id/trap_info_placed_text"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/trap_info_image"
-        android:layout_margin="@dimen/trap_info_view_margin"
-        android:textColor="@color/activity_text_color" />
-
     <LinearLayout
         android:id="@+id/trap_info_button_layout"
         android:layout_width="match_parent"
@@ -60,6 +52,13 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/trap_info_button_layout"
         android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/trap_info_placed_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/trap_info_view_margin"
+            android:textColor="@color/activity_text_color" />
 
         <fragment
             android:id="@+id/trap_info_bait_add_1_frag"
